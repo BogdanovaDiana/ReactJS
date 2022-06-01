@@ -1,0 +1,16 @@
+select {
+    background-color: #232323;
+    border: none;
+    display: inline-block;
+    font: inherit;
+    line-height: 1.5em;
+    padding: 13px 5px 10px 5px;
+    color: #FFFFFF;
+    text-align: center;
+}
+
+.sort {
+    padding: 13px 5px 10px 5px;
+    text-align: right;
+    color: #FFFFFF;
+}

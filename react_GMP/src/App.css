@@ -1,0 +1,23 @@
+.main-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: #232323;
+    height: 20%;
+    left: 58px;
+    top: 54px;
+}
+
+.column {
+    float: left;
+    width: 50%;
+}
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.center {
+    text-align: center;
+}
