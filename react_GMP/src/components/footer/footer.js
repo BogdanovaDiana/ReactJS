@@ -1,7 +1,7 @@
-import Logo from "../logo/logo";
+import {Logo} from "../logo/logo";
 import "./footer.css"
 
-export default function Footer() {
+export const Footer = () => {
     return (
         <div className="footer-wrapper">
             <div className="center">

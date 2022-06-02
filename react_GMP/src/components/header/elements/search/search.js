@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function Search() {
+export const Search = () => {
     return (
         <React.Fragment>
             <div className="label">FIND YOUR MOVIE</div>

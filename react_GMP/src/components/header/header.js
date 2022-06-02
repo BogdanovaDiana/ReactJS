@@ -1,9 +1,9 @@
-import Logo from "../logo/logo";
-import Search from "./elements/search/search";
+import {Logo} from "../logo/logo";
+import {Search} from "./elements/search/search";
 import '../../App.css'
 import './header.css'
 
-export default function Header() {
+export const Header = () => {
     return (
         <div className="header-wrapper">
             <div className="row">

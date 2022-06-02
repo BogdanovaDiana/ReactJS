@@ -1,6 +1,6 @@
-import Card from "./elements/card/card";
+import {Card} from "./elements/card/card";
 
-export default function CardsList() {
+export const CardsList = () => {
     const cards = [
         {
             id: 1,
@@ -48,7 +48,7 @@ export default function CardsList() {
 
     let cardsList = cards.map((card) =>
         <Card
-            key={card.id + Math.random()}
+            key={card.id}
             card={card}
         />
     );

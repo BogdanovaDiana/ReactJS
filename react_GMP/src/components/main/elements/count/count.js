@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import "./count.css"
 
-export default function Count(props) {
+export const Count = (props) => {
     return (
         <p className="count">{props.count} movies found</p>
     )

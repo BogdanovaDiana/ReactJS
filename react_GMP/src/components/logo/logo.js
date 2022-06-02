@@ -1,5 +1,5 @@
 
-export default function Logo() {
+export const Logo = () => {
     return (
         <svg width="150" height="18" viewBox="0 0 150 18" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path

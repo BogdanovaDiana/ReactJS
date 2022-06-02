@@ -1,7 +1,7 @@
 import "./card.css";
 import PropTypes from 'prop-types';
 
-export default function Card(props) {
+export const Card = (props) => {
     return (
         <div className="col-sm card-wrapper">
             <img className="poster" alt="Item image" src={props.card.path} />

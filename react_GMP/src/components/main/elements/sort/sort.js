@@ -1,6 +1,6 @@
 import "./sort.css"
 
-export default function Sort() {
+export const Sort = () => {
     return (
         <div className="row">
             <div className="col-4 sort">
