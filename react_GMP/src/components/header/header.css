@@ -1,0 +1,12 @@
+.header-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    background-image: url('../../../public/images/header.png');
+    height: 20%;
+    left: 58px;
+    top: 54px;
+}
+
+.logo {
+    margin: 2% 4%
+}
