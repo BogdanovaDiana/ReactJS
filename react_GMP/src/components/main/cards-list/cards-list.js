@@ -1,6 +1,12 @@
 import {Card} from "./elements/card/card";
+import {EditMovie} from "../../form/edit-movie/edit-movie";
+import React from "react";
+import {useState} from "react";
+import DeleteMovie from "../../form/delete-movie/delete-movie";
 
 export const CardsList = () => {
+    const [showEditModal, setShowEditModal] = useState(false);
+    const [showDeleteModal, setShowDeleteModal] = useState(false);
     const cards = [
         {
             id: 1,
@@ -50,11 +56,15 @@ export const CardsList = () => {
         <Card
             key={card.id}
             card={card}
+            showEditModal={setShowEditModal}
+            showDeleteModal={setShowDeleteModal}
         />
     );
 
     return (
         <div className="main-wrapper">
+            {showEditModal && <EditMovie closeModal={setShowEditModal}/>}
+            {showDeleteModal && <DeleteMovie closeModal={setShowDeleteModal}/>}
             <div className="row">
                 {cardsList}
             </div>
