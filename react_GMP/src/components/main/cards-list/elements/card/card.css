@@ -2,11 +2,6 @@
     margin: 2% 0 2% 2%;
 }
 
-.poster {
-    width: 350px;
-    height: 500px;
-}
-
 .title {
     height: 22px;
     left: 116px;
@@ -57,4 +52,32 @@
 
     mix-blend-mode: normal;
     opacity: 0.5;
+}
+
+.container {
+    position: relative;
+    width: 350px;
+    height: 500px;
+}
+
+.container img {
+    width: 100%;
+    height: auto;
+}
+
+.container .menu {
+    position: absolute;
+    top: 10%;
+    left: 85%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    font-size: 16px;
+    padding: 12px 24px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.container .btn:hover {
+    background-color: black;
 }

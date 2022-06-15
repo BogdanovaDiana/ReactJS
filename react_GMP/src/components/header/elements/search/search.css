@@ -1,14 +1,11 @@
 .label {
     width: 392px;
     height: 49px;
-    left: 178px;
-    top: 155px;
 
     font-family: 'Montserrat';
     font-style: normal;
     font-weight: 300;
     font-size: 40px;
-    line-height: 49px;
     text-align: center;
     letter-spacing: 1px;
     text-transform: uppercase;
@@ -18,7 +15,7 @@
     margin: 4% 7%;
 }
 
-input[type="text"] {
+.find-input {
     height: 57px;
     left: 7%;
     background-color : #323232;

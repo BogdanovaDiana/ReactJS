@@ -1,10 +1,14 @@
 import "./card.css";
 import PropTypes from 'prop-types';
+import {MenuButton} from "./elements/menu-btn/menu-button";
 
 export const Card = (props) => {
     return (
         <div className="col-sm card-wrapper">
-            <img className="poster" alt="Item image" src={props.card.path} />
+            <div className="container">
+                <img className="poster" alt="Item image" src={props.card.path}/>
+                <MenuButton showEditModal={props.showEditModal} showDeleteModal={props.showDeleteModal}/>
+            </div>
             <div className="row">
                 <div className="col-10">
                     <div className="title">{props.card.title}</div>
@@ -27,7 +31,7 @@ Card.propTypes = {
 };
 
 Card.defaultProps = {
-    card:  {
+    card: {
         id: 1,
         path: "https://tafttoday.com/wp-content/uploads/2019/05/MV5BZTliNWJhM2YtNDc1MC00YTk1LWE2MGYtZmE4M2Y5ODdlNzQzXkEyXkFqcGdeQXVyMzY0MTE3NzU@._V1_-1-568x900.jpg",
         title: "Movie 1",
