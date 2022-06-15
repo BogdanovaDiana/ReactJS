@@ -4,7 +4,7 @@ import React from "react";
 import {useState} from "react";
 import DeleteMovie from "../../form/delete-movie/delete-movie";
 
-export const CardsList = () => {
+export const CardsList = (props) => {
     const [showEditModal, setShowEditModal] = useState(false);
     const [showDeleteModal, setShowDeleteModal] = useState(false);
     const cards = [
@@ -58,9 +58,11 @@ export const CardsList = () => {
             card={card}
             showEditModal={setShowEditModal}
             showDeleteModal={setShowDeleteModal}
+            setShowDetails={props.setShowDetails}
+            setCardId={props.setCardId}
         />
     );
-
+    
     return (
         <div className="main-wrapper">
             {showEditModal && <EditMovie closeModal={setShowEditModal}/>}

@@ -6,7 +6,10 @@ export const Card = (props) => {
     return (
         <div className="col-sm card-wrapper">
             <div className="container">
-                <img className="poster" alt="Item image" src={props.card.path}/>
+                <img className="poster" alt="Item image" src={props.card.path} onClick={() => {
+                    props.setShowDetails();
+                    props.setCardId(props.card.id);
+                }}/>
                 <MenuButton showEditModal={props.showEditModal} showDeleteModal={props.showDeleteModal}/>
             </div>
             <div className="row">

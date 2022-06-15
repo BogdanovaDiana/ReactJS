@@ -1,0 +1,78 @@
+.details-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: #232323;
+    height: 20%;
+    left: 58px;
+    top: 54px;
+}
+
+.poster-details {
+    width: 100%;
+    height: 100%;
+}
+
+.overview {
+    width: 698px;
+    height: 292px;
+    left: 500px;
+    top: 291px;
+
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 20px;
+    line-height: 24px;
+
+    color: #FFFFFF;
+
+    mix-blend-mode: normal;
+    opacity: 0.5;
+}
+
+.date {
+    left: 500px;
+    top: 233px;
+
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 24px;
+    line-height: 29px;
+
+    color: #F65261;
+}
+
+.genre {
+    width: 323px;
+    height: 17px;
+    left: 500px;
+    top: 186px;
+
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+    color: #FFFFFF;
+
+    mix-blend-mode: normal;
+    opacity: 0.5;
+}
+
+.rating {
+    margin-top: 5%;
+    margin-left: 5%;
+    line-height: 60px;
+    border-radius: 50%;
+    border: 2px solid #979797;
+    color: white;
+    text-align: center;
+    font-size: 2em;
+}
+
+.search-icon {
+    margin-top: 1%;
+    text-align: right;
+    margin-right: 1%;
+}
