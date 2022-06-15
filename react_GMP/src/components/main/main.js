@@ -3,7 +3,7 @@ import {Sort} from "./elements/sort/sort";
 import {Count} from "./elements/count/count";
 import {CardsList} from "./cards-list/cards-list";
 
-export const Main = () => {
+export const Main = (props) => {
     return (
         <div className="main-wrapper">
             <div className="row">
@@ -15,7 +15,7 @@ export const Main = () => {
                 </div>
             </div>
             <Count count={39}/>
-            <CardsList/>
+            <CardsList setShowDetails={props.showDetails} setCardId={props.updateCardId}/>
         </div>
     )
 }
