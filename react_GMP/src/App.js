@@ -5,6 +5,8 @@ import {Footer} from "./components/footer/footer";
 import {Main} from "./components/main/main";
 import ErrorBoundary from "./components/error-boundary/error-boundary";
 import {useCallback, useState} from "react";
+import {Provider} from "react-redux";
+import {store} from "./store"
 
 export const App = () => {
     const [cardId, setCardId] = useState();
@@ -17,13 +19,16 @@ export const App = () => {
     const [showDetails, setShowDetails] = useToggle();
 
     return (
-        <div className="App">
-            <ErrorBoundary>
-                <Header showDetails={showDetails} setShowDetails={setShowDetails} cardId={cardId}/>
-                <br/>
-                <Main showDetails={setShowDetails} updateCardId={setCardId}/>
-                <Footer/>
-            </ErrorBoundary>
-        </div>
+        <Provider store={store}>
+            <div className="App">
+                <ErrorBoundary>
+                    <p>Hello world</p>
+                    <Header showDetails={showDetails} setShowDetails={setShowDetails} cardId={cardId}/>
+                    <br/>
+                    <Main showDetails={setShowDetails} updateCardId={setCardId}/>
+                    <Footer/>
+                </ErrorBoundary>
+            </div>
+        </Provider>
     );
 }
