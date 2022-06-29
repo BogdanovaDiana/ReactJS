@@ -33,7 +33,7 @@ export const MenuButton = (props) => {
                         </defs>
                     </svg>
                 }
-                {showMenu && <Menu closeMenu={setShowMenu} showEditModal={props.showEditModal} showDeleteModal={props.showDeleteModal}/>}
+                {showMenu && <Menu closeMenu={setShowMenu} showEditModal={props.showEditModal} showDeleteModal={props.showDeleteModal} id={props.id}/>}
             </div>
         </React.Fragment>
     )

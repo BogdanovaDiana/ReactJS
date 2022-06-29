@@ -2,8 +2,10 @@ import React from "react";
 import {Logo} from "../../logo/logo";
 import PropTypes from "prop-types";
 import "./movie-details.css";
+import {useSelector} from "react-redux";
 
 export const MovieDetails = (props) => {
+    const movie = useSelector(state => state.movie);
     return (
         <div className="details-wrapper">
             <div className="row">
@@ -21,30 +23,30 @@ export const MovieDetails = (props) => {
             </div>
             <div className="row">
                 <div className="col-4">
-                    <img className="poster-details" alt="Item image" src={props.card.path}/>
+                    <img className="poster-details" alt="Item image" src={movie.poster_path}/>
                 </div>
                 <div className="col-6">
                     <div className="row">
                         <div className="col-8">
-                            <div className="label">{props.card.title}</div>
+                            <div className="title">{movie.title}</div>
                         </div>
                         <div className="col-2">
-                            <div className="rating">{props.card.rating}</div>
+                            <div className="rating">{movie.vote_average}</div>
                         </div>
                     </div>
                     <br/>
-                    <p className="genre">{props.card.genre}</p>
+                    <p className="genre">{movie.genres}</p>
                     <br/>
                     <div className="row">
                         <div className="col-4 date">
-                            {props.card.date}
+                            {movie.release_date}
                         </div>
                         <div className="col-6 date">
-                            {props.card.runtime}
+                            {movie.runtime}
                         </div>
                     </div>
                     <br/>
-                    <p className="overview">{props.card.overview}</p>
+                    <p className="overview">{movie.overview}</p>
                 </div>
             </div>
         </div>
@@ -53,18 +55,4 @@ export const MovieDetails = (props) => {
 
 MovieDetails.propTypes = {
     card: PropTypes.object
-};
-
-MovieDetails.defaultProps = {
-    card: {
-        id: 1,
-        title: "Pulp Fiction",
-        path: "https://tafttoday.com/wp-content/uploads/2019/05/MV5BZTliNWJhM2YtNDc1MC00YTk1LWE2MGYtZmE4M2Y5ODdlNzQzXkEyXkFqcGdeQXVyMzY0MTE3NzU@._V1_-1-568x900.jpg",
-        date: "1994",
-        url: "https://myMovie.com",
-        genre: "Action & Adventure",
-        rating: "9.8",
-        runtime: "2h 30min",
-        overview: "Jules Winnfield (Samuel L. Jackson) and Vincent Vega (John Travolta) are two hit men who are out to retrieve a suitcase stolen from their employer, mob boss Marsellus Wallace (Ving Rhames). Wallace has also asked Vincent to take his wife Mia (Uma Thurman) out a few days later when Wallace himself will be out of town. Butch Coolidge (Bruce Willis) is an aging boxer who is paid by Wallace to lose his fight. The lives of these seemingly unrelated people are woven together comprising of a series of funny, bizarre and uncalled-for incidents.—Soumitra"
-    }
 };
