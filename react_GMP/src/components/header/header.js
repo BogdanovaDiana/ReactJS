@@ -3,8 +3,8 @@ import {Search} from "./elements/search/search";
 import '../../App.css'
 import './header.css'
 import React, {useState} from "react";
-import {AddMovie} from "../form/add-movie/add-movie";
 import {MovieDetails} from "../form/movie-details/movie-details";
+import {AddEditMovie} from "../form/add-edit-movie/add-edit-movie";
 
 export const Header = (props) => {
     const [openModal, setOpenModal] = useState(false);
@@ -24,7 +24,7 @@ export const Header = (props) => {
                             </button>
                         </div>
                     </div>
-                    {openModal && <AddMovie closeModal={setOpenModal}/>}
+                    {openModal && <AddEditMovie closeModal={setOpenModal} isEdit={false}/>}
                     <Search/>
                 </div>
             }

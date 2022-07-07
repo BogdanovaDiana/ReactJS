@@ -22,7 +22,6 @@ export const App = () => {
         <Provider store={store}>
             <div className="App">
                 <ErrorBoundary>
-                    <p>Hello world</p>
                     <Header showDetails={showDetails} setShowDetails={setShowDetails} cardId={cardId}/>
                     <br/>
                     <Main showDetails={setShowDetails} updateCardId={setCardId}/>
