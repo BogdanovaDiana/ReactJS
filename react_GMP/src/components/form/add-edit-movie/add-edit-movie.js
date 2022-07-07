@@ -15,6 +15,7 @@ export const AddEditMovie = (props) => {
     const [genres, setGenres] = useState(movie.genres ?? '');
     const [runtime, setRuntime] = useState(movie.runtime ?? 0);
     const [overview, setOverview] = useState(movie.overview ?? '');
+    const [isValid, setIsValid] = useState(false);
 
     const formik = useFormik({
         initialValues: {
@@ -25,13 +26,10 @@ export const AddEditMovie = (props) => {
             date: date,
             poster_path: tagline,
         },
-        isSubmitting: false,
+        isSubmitting: true,
         enableReinitialize: true,
         onSubmit: (values, {setSubmitting}) => {
-            setTimeout(() => {
-                alert(JSON.stringify(values, null, 2));
-                setSubmitting(false);
-            }, 400);
+            alert(JSON.stringify(values, null, 2));
         },
         validate: values => {
             const errors = {};
@@ -63,6 +61,8 @@ export const AddEditMovie = (props) => {
             if (!Number.isInteger(parseInt(values.vote_average))) {
                 errors.vote_average = 'Vote average must be an integer';
             }
+
+            setIsValid(!errors.length);
             return errors;
         }
     });
@@ -84,7 +84,6 @@ export const AddEditMovie = (props) => {
         document.body.style.overflow = 'hidden';
         return () => document.body.style.overflow = 'scroll';
     }, []);
-
     useEffect(() => {
         const genre = movie.genres ? movie.genres[0] : '';
         setTitle(movie.title ?? '');
@@ -98,14 +97,17 @@ export const AddEditMovie = (props) => {
 
     const dispatch = useDispatch();
     const handleOnSubmit = () => {
+        if(!isValid) {
+            return null;
+        }
         if (movie.id) {
-            dispatch(editMovie(
+             dispatch(editMovie(
                 {
                     id: movie.id,
                     title: title,
                     release_date: date,
                     tagline: tagline,
-                    vote_average: rating,
+                    vote_average: parseInt(rating),
                     genres: [genres],
                     runtime: parseInt(runtime),
                     overview: overview,
@@ -113,12 +115,12 @@ export const AddEditMovie = (props) => {
                 }
             ));
         } else {
-            dispatch(addMovie(
+             dispatch(addMovie(
                 {
                     title: title,
                     release_date: date,
                     tagline: tagline,
-                    vote_average: rating,
+                    vote_average: parseInt(rating),
                     genres: [genres],
                     runtime: parseInt(runtime),
                     overview: overview,
@@ -126,7 +128,9 @@ export const AddEditMovie = (props) => {
                 }
             ));
         }
-        dispatch(saveCurrentMovieData(''))
+        dispatch(saveCurrentMovieData(''));
+        props.closeModal(false);
+        setIsValid(false);
     }
 
     return (
