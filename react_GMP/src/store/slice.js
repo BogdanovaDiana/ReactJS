@@ -25,6 +25,45 @@ export const getMovie = createAsyncThunk(
     }
 );
 
+export const deleteMovie = createAsyncThunk(
+    'slice/deleteMovie',
+    async (_, thunkApi ) => {
+        const state = thunkApi.getState();
+        return await fetch(`http://localhost:4000/movies/${state.currentMovieId}`, {
+            method: 'DELETE'
+        }).
+        then(res => res.json());
+    }
+);
+
+export const editMovie = createAsyncThunk(
+    'slice/editMovie',
+    async (movie) => {
+        return await fetch(`http://localhost:4000/movies`, {
+            method: 'PUT',
+            body: JSON.stringify(movie),
+            headers: {
+                "Content-Type":"application/json"
+            }
+        }).
+        then(res => res.json());
+    }
+);
+
+export const addMovie = createAsyncThunk(
+    'slice/addMovie',
+    async (movie) => {
+        return await fetch(`http://localhost:4000/movies`, {
+            method: 'POST',
+            body: JSON.stringify(movie),
+            headers: {
+                "Content-Type":"application/json"
+            }
+        }).
+        then(res => res.json());
+    }
+);
+
 const slice = createSlice({
     name: 'slice',
     initialState,
@@ -34,7 +73,10 @@ const slice = createSlice({
         },
         filter: (state, action) => {
             state.genre = action.payload
-        }
+        },
+        saveCurrentMovieData: (state, action) => {
+            state.currentMovieId = action.payload
+        },
     },
     extraReducers: {
         [getMovies.fulfilled]: (state, action) => {
@@ -43,6 +85,9 @@ const slice = createSlice({
         [getMovie.fulfilled]: (state, action) => {
             state.movie = action.payload;
         },
+        [addMovie.fulfilled]: (state, action) => {
+            state.currentMovieId = action.payload.id
+        },
     }
 })
 
@@ -50,5 +95,6 @@ export default slice.reducer;
 
 export const {
     sortBy,
-    filter
+    filter,
+    saveCurrentMovieData
 } = slice.actions

@@ -1,17 +1,19 @@
 import React from "react";
 import "./menu.css"
 import {useDispatch} from "react-redux";
-import {getMovie, getMovies} from "../../../../../../../store/slice";
+import {getMovie, saveCurrentMovieData} from "../../../../../../../store/slice";
 
 export const Menu = (props) => {
     const dispatch = useDispatch();
     const handleEditClick = (id) => {
+        dispatch(saveCurrentMovieData(id));
         dispatch(getMovie(id));
         props.showEditModal(true);
         props.closeMenu(false);
    }
 
-    const handleDeleteClick = () => {
+    const handleDeleteClick = (id) => {
+        dispatch(saveCurrentMovieData(id));
         props.showDeleteModal(true);
         props.closeMenu(false);
     }
@@ -25,7 +27,7 @@ export const Menu = (props) => {
                         <a className="nav-link" onClick={() => handleEditClick(props.id)}>Edit</a>
                     </li>
                     <li>
-                        <a className="nav-link" onClick={() => handleDeleteClick()}>Delete</a>
+                        <a className="nav-link" onClick={() => handleDeleteClick(props.id)}>Delete</a>
                     </li>
                 </nav>
             </div>

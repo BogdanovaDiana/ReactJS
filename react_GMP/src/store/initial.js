@@ -46,5 +46,6 @@ export const initialState = {
         movie: {},
         sortBy: "release_date",
         genre: "ALL",
+        currentMovieId: '',
     }
 ;

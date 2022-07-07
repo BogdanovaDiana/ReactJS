@@ -1,7 +1,7 @@
 import "./card.css";
 import PropTypes from 'prop-types';
 import {MenuButton} from "./elements/menu-btn/menu-button";
-import {getMovie} from "../../../../../store/slice";
+import {deleteMovie, getMovie} from "../../../../../store/slice";
 import {useDispatch} from "react-redux";
 
 export const Card = (props) => {
