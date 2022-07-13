@@ -7,6 +7,8 @@ export const getMovies = createAsyncThunk(
         const state = thunkApi.getState();
         const url = new URL("http://localhost:4000/movies");
         const params = {
+            search: state.searchString ?? '',
+            searchBy: "title",
             filter: state.genre === "ALL" ? '' : state.genre,
             sortBy: state.sortBy,
             sortOrder: 'desc',
@@ -77,6 +79,12 @@ const slice = createSlice({
         saveCurrentMovieData: (state, action) => {
             state.currentMovieId = action.payload
         },
+        searchMovies: (state, action) => {
+            state.searchString = action.payload
+        },
+        showDetails: (state, action) => {
+            state.showDetails = true
+        }
     },
     extraReducers: {
         [getMovies.fulfilled]: (state, action) => {
@@ -96,5 +104,7 @@ export default slice.reducer;
 export const {
     sortBy,
     filter,
-    saveCurrentMovieData
+    saveCurrentMovieData,
+    searchMovies,
+    showDetails,
 } = slice.actions
