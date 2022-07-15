@@ -1,15 +1,17 @@
 import "./card.css";
 import PropTypes from 'prop-types';
 import {MenuButton} from "./elements/menu-btn/menu-button";
-import {getMovie} from "../../../../../store/slice";
+import {getMovie, saveCurrentLocation} from "../../../../../store/slice";
 import {useDispatch} from "react-redux";
 import {useLocation, Link} from "react-router-dom";
 
 export const Card = (props) => {
     const dispatch = useDispatch();
 
-    const handleOnGetDetails = (id) => {
-        dispatch(getMovie(id))
+    const handleOnGetDetails = () => {
+        dispatch(saveCurrentLocation(location.search));
+        props.setShowDetails();
+        dispatch(getMovie(props.card.id));
     }
     const location = useLocation();
 

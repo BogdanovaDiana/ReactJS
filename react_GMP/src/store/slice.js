@@ -84,7 +84,10 @@ const slice = createSlice({
         },
         showDetails: (state, action) => {
             state.showDetails = true
-        }
+        },
+        saveCurrentLocation: (state, action) => {
+            state.currentLocation = action.payload
+        },
     },
     extraReducers: {
         [getMovies.fulfilled]: (state, action) => {
@@ -107,4 +110,5 @@ export const {
     saveCurrentMovieData,
     searchMovies,
     showDetails,
+    saveCurrentLocation,
 } = slice.actions

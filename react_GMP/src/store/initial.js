@@ -49,5 +49,6 @@ export const initialState = {
         currentMovieId: '',
         searchString: "",
         showDetails: false,
+        currentLocation: '',
     }
 ;

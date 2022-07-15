@@ -24,7 +24,7 @@ export const Main = (props) => {
                     <Sort/>
                 </div>
             </div>
-            <Count count={39}/>
+            <Count count={'...'}/>
             <CardsList setShowDetails={props.showDetails} setCardId={props.updateCardId}/>
         </div>
     )
