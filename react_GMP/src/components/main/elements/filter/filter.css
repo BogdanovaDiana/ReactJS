@@ -3,5 +3,8 @@
 }
 .nav-link {
     color: #FFFFFF;
+}
 
+.nav-item.active {
+    background-color: #555555;
 }

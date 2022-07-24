@@ -47,5 +47,8 @@ export const initialState = {
         sortBy: "release_date",
         genre: "ALL",
         currentMovieId: '',
+        searchString: "",
+        showDetails: false,
+        currentLocation: '',
     }
 ;

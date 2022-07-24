@@ -1,12 +1,16 @@
 import "./sort.css"
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {sortBy} from "../../../../store/slice";
 
 export const Sort = () => {
     const dispatch = useDispatch();
-    const handleSortBy = (sort) => {
-        let sortByField = sort==="date" ?  "release_date" : "vote_average";
-        dispatch(sortBy(sortByField))
+    const sort = useSelector(state => state.sortBy);
+    const handleSortBy = (event) => {
+        let sortByField = event.target.value;
+        const params = new URLSearchParams(location.search);
+        params.set("sort", sortByField);
+        location.search = params.toString();
+        dispatch(sortBy(sortByField));
     }
 
     return (
@@ -15,9 +19,9 @@ export const Sort = () => {
                 <p>SORT BY</p>
             </div>
             <div className="col-2">
-                <select name="cars" id="cars" onChange={(e) => handleSortBy(e.target.value)}>
-                    <option value="date">RELEASE DATE</option>
-                    <option value="rating">RATING</option>
+                <select name="cars" id="cars" onChange={handleSortBy} value={sort}>
+                    <option value="release_date">RELEASE DATE</option>
+                    <option value="vote_average">RATING</option>
                 </select>
             </div>
         </div>

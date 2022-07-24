@@ -5,12 +5,14 @@ import './header.css'
 import React, {useState} from "react";
 import {MovieDetails} from "../form/movie-details/movie-details";
 import {AddEditMovie} from "../form/add-edit-movie/add-edit-movie";
+import {useSelector} from "react-redux";
 
 export const Header = (props) => {
+    const showDetails = useSelector(state => state.showDetails);
     const [openModal, setOpenModal] = useState(false);
     return (
         <React.Fragment>
-            {props.showDetails && <MovieDetails showDetails={props.setShowDetails} cardId={props.cardId}/>}
+            {(props.showDetails || showDetails) && <MovieDetails showDetails={props.setShowDetails} cardId={props.cardId}/>}
             {!props.showDetails &&
                 <div className="header-wrapper">
                     <div className="row">

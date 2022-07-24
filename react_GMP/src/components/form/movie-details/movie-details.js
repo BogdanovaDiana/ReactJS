@@ -6,6 +6,11 @@ import {useSelector} from "react-redux";
 
 export const MovieDetails = (props) => {
     const movie = useSelector(state => state.movie);
+    const searchParams = useSelector(state => state.currentLocation);
+    const handleClick = () => {
+        props.showDetails();
+        location.search = searchParams;
+    }
     return (
         <div className="details-wrapper">
             <div className="row">
@@ -14,7 +19,7 @@ export const MovieDetails = (props) => {
                         <Logo/>
                     </div>
                 </div>
-                <div className="col search-icon center" onClick={() => props.showDetails()}>
+                <div className="col search-icon center" onClick={handleClick}>
                     <svg width="29" height="30" viewBox="0 0 29 30" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <circle cx="18.5" cy="10.5" r="9.5" stroke="#F65261" stroke-width="2"/>
                         <path d="M10.5 19.5L1.5 28.5" stroke="#F65261" stroke-width="2" stroke-linecap="square"/>
